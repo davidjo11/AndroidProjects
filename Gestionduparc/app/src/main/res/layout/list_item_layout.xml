@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/issueId"
+        android:inputType="number"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/itemTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Intitulé du problème"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="12dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+            android:layout_below="@+id/itemTitle"
+        android:layout_alignLeft="@+id/itemTitle"
+        android:layout_alignStart="@+id/itemTitle"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="2dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="left|center"
+            android:layout_weight="3">
+
+            <TextView
+                android:id="@+id/textType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type du problème"
+                android:textColor="#AAAACC"
+                android:textSize="18sp"
+                android:layout_weight="2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/localize"
+            android:gravity="left|center"
+            android:layout_weight="4">
+
+            <TextView
+                android:id="@+id/textResolu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Non résolu"
+                android:textStyle="bold|italic"
+                android:textColor="@color/red"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="3" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:scrollIndicators="right">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/image"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="25dp"
+        android:maxHeight="150dp"
+        android:maxWidth="150dp"
+        android:minHeight="100dp"
+        android:minWidth="100dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:textSize="18sp"
+        android:text="Intitulé du problème :"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Intitulé du problème"
+        android:textIsSelectable="false"
+        android:autoText="true"
+        android:editable="false"
+        android:enabled="true"
+        android:inputType="text"
+        android:singleLine="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:id="@+id/editIssue"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/title"
+            android:hint="Intitulé"
+            android:textSize="18sp"
+            android:visibility="visible"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text=" - Ajouté le "
+            android:id="@+id/date"
+            android:textStyle="italic"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp"
+        android:text="Type du problème :"
+        android:textColor="@android:color/black"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/type"
+        android:spinnerMode="dialog"
+        android:scrollIndicators="right"
+        android:dropDownSelector="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:id="@+id/latlng">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:textSize="18sp"
+                android:text="Latitude :"
+                android:textColor="@android:color/black" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:hint="0"
+                android:id="@+id/lat"
+                android:numeric="decimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:textSize="18sp"
+                android:text="Longitude :"
+                android:hint="0"
+                android:textColor="@android:color/black" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:hint="0"
+                android:id="@+id/lng"
+                android:numeric="decimal" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:id="@+id/map"
+        android:onClick="showMap"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/custom_linear_border"
+        android:hapticFeedbackEnabled="true">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_margin="5dp"
+            android:visibility="invisible"
+            android:clickable="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/imageView"
+            android:src="@drawable/marker"
+            />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="5dp"
+            android:id="@+id/address"
+            android:text="Aucune adresse trouvée!"
+            android:textSize="18sp"
+            android:visibility="visible"
+            android:textIsSelectable="true"
+            android:gravity="center"
+            android:clickable="true"
+            android:onClick="showMap"
+            android:textColor="#ffffff"
+            android:enabled="true" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:textSize="18sp"
+        android:text="Description :"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="5dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/desc"
+        android:autoText="true"
+        android:hint="Description"
+        android:lines="2"
+        android:textIsSelectable="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Non résolu"
+        android:layout_marginTop="5dp"
+        android:id="@+id/checkBox"
+        android:enabled="true"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:onClick="check"
+        android:buttonTint="@android:color/secondary_text_light"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_marginTop="5dp">
+        <Button
+            android:id="@+id/enregistrer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="save"/>
+        <Button
+            android:id="@+id/supprimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="delete" />
+    </LinearLayout>
+
+</LinearLayout>
